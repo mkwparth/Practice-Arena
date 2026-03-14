@@ -1,5 +1,5 @@
 import uuid
-from sqlalchemy import Column, String, Boolean, DateTime
+from sqlalchemy import Column, String, Boolean, DateTime, Integer
 from sqlalchemy.sql import func
 from app.db.base import Base
 
@@ -7,7 +7,7 @@ class User(Base):
 
     __tablename__ = "users"
 
-    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    id = Column(Integer, primary_key=True, index=True)
     email = Column(String, unique=True, index=True)
     name = Column(String)
 
